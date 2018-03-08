@@ -1,5 +1,12 @@
 pragma solidity ^0.4.13;
 
+contract Authority {
+    function canCall(
+        address src, address destination, uint value, bytes data
+    ) public view returns (bool);
+}
+
+
 contract SampleAuthority {
     address public coldWallet;
 

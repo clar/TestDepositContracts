@@ -4,10 +4,10 @@ contract DepositController {
     function isAuthorized(address src, address desitination, uint value, bytes data) public returns (bool);
 }
 
-contract Deposit {
+contract DepositWallet {
     DepositController      public  controller;
     
-    function Deposit(address _controller) public {
+    function DepositWallet(address _controller) public {
         controller = DepositController(_controller);
     }
     

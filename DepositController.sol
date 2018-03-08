@@ -11,11 +11,16 @@ contract AuthEvents {
     event LogSetOwner     (address indexed owner);
 }
 
-contract DepositAuth is AuthEvents {
+contract DepositController {
+    function isAuthorized(address src, address desitination, uint value, bytes data) public returns (bool);
+}
+
+contract DefaultDepositController is AuthEvents, DepositController {
     Authority  public  authority;
     address      public  owner;
+    address public destination;
 
-    function DepositAuth() public {
+    function DefaultDepositController() public {
         owner = msg.sender;
         LogSetOwner(msg.sender);
     }
